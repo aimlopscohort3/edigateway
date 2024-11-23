@@ -1,0 +1,15 @@
+services:
+  edi_gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8086:8086"
+    networks:
+      - temporal-network
+
+networks:
+  temporal-network:
+    driver: bridge
+    name: temporal-network
+    external: true
